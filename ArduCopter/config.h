@@ -341,6 +341,12 @@
 #endif
 //////////////////////////////////////////////////////////////////////////////
 
+// Test mode - limited height 1 meter
+#ifndef MODE_TEST_ENABLED
+# define MODE_TEST_ENABLED !HAL_MINIMIZE_FEATURES
+#endif
+
+//////////////////////////////////////////////////////////////////////////////
 // Beacon support - support for local positioning systems
 #ifndef BEACON_ENABLED
 # define BEACON_ENABLED !HAL_MINIMIZE_FEATURES
