@@ -1792,6 +1792,7 @@ class ModeTest :  public Mode {
 
         bool init(bool ignore_checks) override;
         void run() override;
+        void exit() override;
 
         bool requires_GPS() const override { return true; }
         bool has_manual_throttle() const override { return false; }
