@@ -28,11 +28,18 @@ bool ModeTest::init(const bool ignore_checks)
 
 void ModeTest::run()
 {
+    // Max Height in cm
+    float max = 100.0;
+    float v_speed = 0.0;
+
     // set vertical speed and acceleration limits
     pos_control->set_max_speed_accel_z(-get_pilot_speed_dn(), g.pilot_speed_up, g.pilot_accel_z);
 
     // apply SIMPLE mode transform to pilot inputs
     update_simple_mode();
+
+    if (pos_control->get_pos_target_z_cm() > 100)
+        pos_control->input_pos_vel_accel_z(max, v_speed, 0);
 }
 
 void ModeTest::exit()
