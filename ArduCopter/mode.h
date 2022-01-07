@@ -1800,6 +1800,9 @@ class ModeTest :  public Mode {
         bool is_autopilot() const override { return false; }
 
     protected:
+        protected:
+           const char *name() const override { return "TESTMODE"; }
+           const char *name4() const override { return "TESTM"; }
     private:
 };
 #endif
