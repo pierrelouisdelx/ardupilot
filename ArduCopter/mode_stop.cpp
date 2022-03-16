@@ -12,5 +12,9 @@ bool ModeStop::init(bool ignore_checks)
 
 void ModeStop::run()
 {
-    hal.console->printf("STOPPPP\n");
+    if (motors->armed()) {
+        // Motors should be Stopped
+        motors->set_desired_spool_state(AP_Motors::DesiredSpoolState::SHUT_DOWN);
+        copter.arming.disarm(AP_Arming::Method::LANDED);
+    }
 }
