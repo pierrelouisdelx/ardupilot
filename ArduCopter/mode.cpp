@@ -168,6 +168,11 @@ Mode *Copter::mode_from_mode_num(const Mode::Number mode)
             ret = &mode_autorotate;
             break;
 #endif
+#if MODE_STOP_ENABLED == ENABLED
+        case Mode::Number::STOP:
+            ret = &mode_stop;
+            break;
+#endif
 
         default:
             break;
